@@ -2,14 +2,14 @@ package com.wulf.systems.mes.MESSystem.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "order_product_detail")
 public class OrderProductDetail {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @JoinColumn(name = "id_order_products")
     private OrderProducts orderProducts;

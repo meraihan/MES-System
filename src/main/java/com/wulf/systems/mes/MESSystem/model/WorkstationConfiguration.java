@@ -2,16 +2,16 @@ package com.wulf.systems.mes.MESSystem.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "workstation_configuration")
 public class WorkstationConfiguration {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @OneToMany
     @JoinColumn(name = "id_workstation", nullable = false)
     private WorkStation workStation;
     @JoinColumn(name = "id_product_attribute", nullable = false)
