@@ -36,7 +36,7 @@ public class WorkStationController {
 
     @PostMapping("/save")
     @ApiOperation(value = "Api will save thr workstation", notes = "Saving workstations")
-    public ResponseEntity<WorkStation> createTutorial(@RequestBody WorkStation workStation) {
+    public ResponseEntity<WorkStation> createWorkStation(@RequestBody WorkStation workStation) {
         try {
             WorkStation station = workStationRepo.save(workStation);
             return new ResponseEntity<>(station, HttpStatus.CREATED);
@@ -47,7 +47,7 @@ public class WorkStationController {
 
     @GetMapping("/find/{wId}")
     @ApiOperation(value = "Get details of a Workstation by Id")
-    public ResponseEntity<WorkStation> getWorkstationDetails(@PathVariable("wId") Integer wId) {
+    public ResponseEntity<WorkStation> getWorkstation(@PathVariable("wId") Integer wId) {
         Optional<WorkStation> workStation = workStationRepo.findById(wId);
         if(!workStation.isPresent()){
             return ResponseEntity.notFound().build();

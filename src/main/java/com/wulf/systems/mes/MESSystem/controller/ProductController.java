@@ -48,7 +48,7 @@ public class ProductController {
 
     @GetMapping("/find/{pId}")
     @ApiOperation(value = "Get details of a Product by Id")
-    public ResponseEntity<Product> getProductAttributeById(@PathVariable("pId") Integer paId) {
+    public ResponseEntity<Product> getProductById(@PathVariable("pId") Integer paId) {
         Optional<Product> optionalProduct = productRepo.findById(paId);
         if(!optionalProduct.isPresent()){
             return ResponseEntity.notFound().build();

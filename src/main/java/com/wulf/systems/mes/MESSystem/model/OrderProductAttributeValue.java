@@ -16,5 +16,4 @@ public class OrderProductAttributeValue {
     @JoinColumn(name = "id_product_attribute")
     private ProductAttribute productAttribute;
     private BigDecimal value;
-
 }

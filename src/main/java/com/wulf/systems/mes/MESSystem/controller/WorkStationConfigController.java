@@ -36,7 +36,7 @@ public class WorkStationConfigController {
 
     @PostMapping("/save")
     @ApiOperation(value = "Api will save thr workstation configuration", notes = "Saving workstation configurations")
-    public ResponseEntity<WorkstationConfiguration> createTutorial(@RequestBody WorkstationConfiguration workstationConfiguration) {
+    public ResponseEntity<WorkstationConfiguration> createWorkStationConfig(@RequestBody WorkstationConfiguration workstationConfiguration) {
         try {
             WorkstationConfiguration wsConfig = workStationConfigRepo.save(workstationConfiguration);
             return new ResponseEntity<>(wsConfig, HttpStatus.CREATED);
@@ -47,7 +47,7 @@ public class WorkStationConfigController {
 
     @GetMapping("/find/{wcId}")
     @ApiOperation(value = "Get details of a Workstation Config by Id")
-    public ResponseEntity<WorkstationConfiguration> getWorkstationDetails(@PathVariable("wcId") Integer wcId) {
+    public ResponseEntity<WorkstationConfiguration> getWorkstationConfig(@PathVariable("wcId") Integer wcId) {
         Optional<WorkstationConfiguration> wsConfig = workStationConfigRepo.findById(wcId);
         if(!wsConfig.isPresent()){
             return ResponseEntity.notFound().build();
@@ -57,8 +57,8 @@ public class WorkStationConfigController {
 
     @PostMapping("/update/{wcId}")
     @ApiOperation(value = "Update workstation config by id", notes = "updates of workstation config")
-    public ResponseEntity<WorkstationConfiguration> update(@PathVariable("wId") Integer wId, @RequestBody WorkstationConfiguration workstationConfiguration) {
-        Optional<WorkstationConfiguration> optionalWorkStation = workStationConfigRepo.findById(wId);
+    public ResponseEntity<WorkstationConfiguration> update(@PathVariable("wcId") Integer wcId, @RequestBody WorkstationConfiguration workstationConfiguration) {
+        Optional<WorkstationConfiguration> optionalWorkStation = workStationConfigRepo.findById(wcId);
         if(optionalWorkStation.isPresent()){
             WorkstationConfiguration wsConfig = optionalWorkStation.get();
             wsConfig.setWorkStation(workstationConfiguration.getWorkStation());
