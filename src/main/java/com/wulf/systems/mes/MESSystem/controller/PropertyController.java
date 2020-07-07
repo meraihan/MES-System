@@ -47,7 +47,7 @@ public class PropertyController {
 
     @GetMapping("/find/{pId}")
     @ApiOperation(value = "Get details of a Property by Id")
-    public ResponseEntity<Property> getPropertyById(@PathVariable Integer pId) {
+    public ResponseEntity<Property> getPropertyById(@PathVariable("pId") Integer pId) {
         Optional<Property> property = propertyRepo.findById(pId);
         if(!property.isPresent()){
             return ResponseEntity.notFound().build();

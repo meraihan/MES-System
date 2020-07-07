@@ -1,7 +1,6 @@
 package com.wulf.systems.mes.MESSystem.controller;
 
 import com.wulf.systems.mes.MESSystem.model.ProductAttribute;
-import com.wulf.systems.mes.MESSystem.model.Property;
 import com.wulf.systems.mes.MESSystem.repo.ProductAttributeRepo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -48,7 +47,7 @@ public class ProductAttributeController {
 
     @GetMapping("/find/{paId}")
     @ApiOperation(value = "Get details of a Product Attribute by Id")
-    public ResponseEntity<ProductAttribute> getProductAttributeById(@PathVariable Integer paId) {
+    public ResponseEntity<ProductAttribute> getProductAttributeById(@PathVariable("paId") Integer paId) {
         Optional<ProductAttribute> optionalProductAttribute = productAttributeRepo.findById(paId);
         if(!optionalProductAttribute.isPresent()){
             return ResponseEntity.notFound().build();

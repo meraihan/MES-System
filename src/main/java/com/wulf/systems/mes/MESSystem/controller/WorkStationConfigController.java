@@ -47,7 +47,7 @@ public class WorkStationConfigController {
 
     @GetMapping("/find/{wcId}")
     @ApiOperation(value = "Get details of a Workstation Config by Id")
-    public ResponseEntity<WorkstationConfiguration> getWorkstationDetails(@PathVariable Integer wcId) {
+    public ResponseEntity<WorkstationConfiguration> getWorkstationDetails(@PathVariable("wcId") Integer wcId) {
         Optional<WorkstationConfiguration> wsConfig = workStationConfigRepo.findById(wcId);
         if(!wsConfig.isPresent()){
             return ResponseEntity.notFound().build();
