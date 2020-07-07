@@ -11,9 +11,10 @@ public class WorkstationConfiguration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "id_workstation", nullable = false)
     private WorkStation workStation;
+    @OneToMany
     @JoinColumn(name = "id_product_attribute", nullable = false)
     private ProductAttribute productAttribute;
     @Column(columnDefinition="tinyint(1) default 1")

@@ -12,8 +12,7 @@ public class OrderProductAttributeValue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JoinColumn(name = "id_order_product_detail", nullable = false)
-    private OrderProductDetail orderProductDetail;
+    @ManyToOne
     @JoinColumn(name = "id_product_attribute", nullable = false)
     private ProductAttribute productAttribute;
     private BigDecimal value;

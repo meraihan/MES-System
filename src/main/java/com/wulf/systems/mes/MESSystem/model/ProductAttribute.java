@@ -11,8 +11,10 @@ public class ProductAttribute {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @ManyToOne
     @JoinColumn(name = "id_product", nullable = false)
     private Product product;
+    @ManyToMany
     @JoinColumn(name = "id_attribute", nullable = false)
     private Attribute attribute;
 }
