@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Table(name = "order_product_attribute_value")
 public class OrderProductAttributeValue {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_product_attribute")
