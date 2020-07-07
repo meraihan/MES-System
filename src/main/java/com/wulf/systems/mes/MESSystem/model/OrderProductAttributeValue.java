@@ -12,8 +12,8 @@ public class OrderProductAttributeValue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    @JoinColumn(name = "id_product_attribute", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_product_attribute")
     private ProductAttribute productAttribute;
     private BigDecimal value;
 

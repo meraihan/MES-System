@@ -9,16 +9,16 @@ import javax.persistence.*;
 @Table(name = "order_products")
 public class OrderProducts {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @OneToMany
-    @JoinColumn(name = "workstation", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "workstation")
     private WorkStation workStation;
-    @ManyToOne
-    @JoinColumn(name = "id_order", nullable = false)
-    private Order order;
-    @ManyToOne
-    @JoinColumn(name = "id_product", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_order")
+    private Orders orders;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_product")
     private Product product;
     private Integer quantity;
     @Column(columnDefinition="tinyint(1) default 1")

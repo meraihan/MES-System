@@ -12,5 +12,8 @@ public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_attribute")
+    private Attribute attribute;
     private BigDecimal value;
 }

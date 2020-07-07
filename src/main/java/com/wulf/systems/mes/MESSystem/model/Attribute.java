@@ -9,10 +9,9 @@ import javax.persistence.*;
 @Table(name = "attribute")
 public class Attribute {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "name")
     private String name;
-    @Column(name = "Attribute_Type")
+    @Column(name = "attribute_type")
     private String attributeType;
 }

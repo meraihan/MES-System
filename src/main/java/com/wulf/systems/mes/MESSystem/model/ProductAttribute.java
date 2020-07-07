@@ -9,12 +9,12 @@ import javax.persistence.*;
 @Table(name = "product_attribute")
 public class ProductAttribute {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToOne
-    @JoinColumn(name = "id_product", nullable = false)
+    @JoinColumn(name = "id_product")
     private Product product;
-    @ManyToMany
-    @JoinColumn(name = "id_attribute", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_attribute")
     private Attribute attribute;
 }
