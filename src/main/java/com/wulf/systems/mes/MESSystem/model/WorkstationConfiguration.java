@@ -3,6 +3,7 @@ package com.wulf.systems.mes.MESSystem.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -14,9 +15,9 @@ public class WorkstationConfiguration {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_workstation", nullable = false)
     private WorkStation workStation;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.REFRESH,fetch = FetchType.LAZY)
     @JoinColumn(name = "id_product_attribute", nullable = false)
-    private ProductAttribute productAttribute;
+    private List<ProductAttribute> productAttribute;
     @Column(columnDefinition="tinyint(1) default 1")
     private boolean permission;
 

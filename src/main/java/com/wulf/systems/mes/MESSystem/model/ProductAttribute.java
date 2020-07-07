@@ -3,6 +3,7 @@ package com.wulf.systems.mes.MESSystem.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -14,7 +15,7 @@ public class ProductAttribute {
     @ManyToOne
     @JoinColumn(name = "id_product")
     private Product product;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.REFRESH,fetch = FetchType.LAZY)
     @JoinColumn(name = "id_attribute")
-    private Attribute attribute;
+    private List<Attribute> attribute;
 }
