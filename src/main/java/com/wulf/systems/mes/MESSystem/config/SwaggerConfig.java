@@ -15,9 +15,8 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .paths(PathSelectors.ant("/workstation/**"))
-                .paths(PathSelectors.ant("/workstation-config/**"))
-                .apis(RequestHandlerSelectors.basePackage("com.wulf.systems.mes.MESSystem"))
+                .paths(PathSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("com.wulf.systems.mes.MESSystem.controller"))
                 .build();
     }
 }

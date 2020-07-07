@@ -21,10 +21,7 @@ public class WorkStationController {
     private WorkStationRepo workStationRepo;
 
     @GetMapping(path = "/list", produces = "application/json")
-    @ApiOperation(
-            value = "Api will get all the workstation",
-            notes =
-                    "Get all the work station")
+    @ApiOperation(value = "Api will get all the workstation", notes = "find all the workstation in a moment")
     public ResponseEntity<List<WorkStation>> list() {
         try {
             List<WorkStation> workStations = workStationRepo.findAll();
