@@ -12,7 +12,7 @@ public class OrderProducts {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "workstation")
+    @JoinColumn(name = "id_workstation")
     private WorkStation workStation;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_order")
