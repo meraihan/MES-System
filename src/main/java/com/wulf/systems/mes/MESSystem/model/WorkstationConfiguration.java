@@ -13,10 +13,10 @@ public class WorkstationConfiguration {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_workstation", nullable = false)
+    @JoinColumn(name = "id_workstation")
     private WorkStation workStation;
     @ManyToMany(cascade = CascadeType.REFRESH,fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_product_attribute", nullable = false)
+    @JoinColumn(name = "id_product_attribute")
     private List<ProductAttribute> productAttribute;
     @Column(columnDefinition="tinyint(1) default 1")
     private boolean permission;
